@@ -1,0 +1,294 @@
+.heroBanner {
+  padding: 6rem 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  color: #a78bfa;
+  margin-bottom: 1.5rem;
+  font-weight: 500;
+}
+
+.gradientText {
+  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+}
+
+/* Services Section */
+.servicesSection {
+  padding: 5rem 0;
+}
+
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionHeader h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.sectionHeader p {
+  color: #a1a1aa;
+  font-size: 1.1rem;
+}
+
+/* Landscape Grid Layout */
+.tilesGrid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.25rem;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.tileWrapper {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+
+/* Service Tiles with SVG Images */
+.serviceTile {
+  background: rgba(20, 20, 35, 0.6);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.serviceTile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--tile-gradient);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.serviceTile:hover::before {
+  opacity: 1;
+}
+
+.serviceTile:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4),
+    0 0 60px var(--tile-glow);
+  z-index: 10;
+}
+
+/* White text on hover */
+.serviceTile:hover .tileSecondaryHeader {
+  color: #ffffff;
+}
+
+.serviceTile:hover .tileDescription {
+  color: #ffffff;
+}
+
+/* SVG Image container */
+.tileImageWrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 20px 20px 0 0;
+}
+
+.tileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.serviceTile:hover .tileImage {
+  transform: scale(1.05);
+}
+
+/* Tile content below image */
+.tileContent {
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.tileSecondaryHeader {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.tileDescription {
+  color: #a1a1aa;
+  line-height: 1.5;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+  flex-grow: 1;
+  transition: color 0.3s ease;
+}
+
+.tileFeatures {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.featureTag {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.35rem 0.7rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.featureTag:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Flow indicator between tiles */
+.flowIndicator {
+  position: absolute;
+  right: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  color: #8b5cf6;
+  font-size: 1.5rem;
+  font-weight: bold;
+  opacity: 0.6;
+  display: none;
+}
+
+/* Flow direction bar */
+.flowDirection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2.5rem;
+  gap: 0.5rem;
+}
+
+.flowLabel {
+  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.5rem 1rem;
+  background-color: rgba(139, 92, 246, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+}
+
+.flowLine {
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.5) 0%, rgba(59, 130, 246, 0.5) 100%);
+  position: relative;
+}
+
+.flowLine::after {
+  content: '→';
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8b5cf6;
+  font-size: 0.8rem;
+}
+
+/* Responsive - Tablet */
+@media screen and (max-width: 1100px) {
+  .tilesGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .flowDirection {
+    flex-wrap: wrap;
+  }
+}
+
+/* Responsive - Mobile */
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    padding: 4rem 1rem;
+  }
+
+  .sectionHeader h2 {
+    font-size: 2rem;
+  }
+
+  .tilesGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .tileContent {
+    padding: 1rem;
+  }
+
+  .tileTitle {
+    font-size: 1rem;
+  }
+
+  .tileDescription {
+    font-size: 0.75rem;
+  }
+
+  .flowDirection {
+    display: none;
+  }
+}
+
+/* Mobile - Single column */
+@media screen and (max-width: 500px) {
+  .tilesGrid {
+    grid-template-columns: 1fr;
+  }
+}

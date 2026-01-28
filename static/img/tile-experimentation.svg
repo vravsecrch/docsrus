@@ -1,0 +1,37 @@
+<svg width="280" height="280" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="280" height="280" rx="20" fill="#005eb0"/>
+  
+  <!-- Experimentation Icon - Lab flask with A/B testing -->
+  <g filter="url(#shadow)" transform="translate(60, 25)">
+    <!-- Flask -->
+    <path d="M60,15 L60,60 L25,140 C20,152 27,165 42,165 L118,165 C133,165 140,152 135,140 L100,60 L100,15 Z" fill="white"/>
+    
+    <!-- Flask neck -->
+    <rect x="55" y="8" width="50" height="15" rx="4" fill="white"/>
+    
+    <!-- A side -->
+    <rect x="35" y="85" width="40" height="65" rx="4" fill="#005eb0" opacity="0.2"/>
+    <text x="55" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#005eb0">A</text>
+    
+    <!-- B side -->
+    <rect x="85" y="85" width="40" height="65" rx="4" fill="#005eb0" opacity="0.35"/>
+    <text x="105" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#005eb0">B</text>
+    
+    <!-- Divider line -->
+    <line x1="80" y1="85" x2="80" y2="150" stroke="#005eb0" stroke-width="2" opacity="0.5"/>
+    
+    <!-- Bubbles -->
+    <circle cx="50" cy="145" r="5" fill="#005eb0" opacity="0.3"/>
+    <circle cx="110" cy="140" r="4" fill="#005eb0" opacity="0.3"/>
+  </g>
+  
+  <!-- Title -->
+  <text x="140" y="235" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="white">Experimentation</text>
+</svg>

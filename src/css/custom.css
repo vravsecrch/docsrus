@@ -1,0 +1,405 @@
+/**
+ * Custom CSS for Docs Are Us - Web3 Infrastructure
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* Color palette */
+:root {
+  --ifm-color-primary: #006fcf;
+  --ifm-color-primary-dark: #0064ba;
+  --ifm-color-primary-darker: #005eb0;
+  --ifm-color-primary-darkest: #004e90;
+  --ifm-color-primary-light: #007ae4;
+  --ifm-color-primary-lighter: #0080ee;
+  --ifm-color-primary-lightest: #0e8fff;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  --ifm-font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --ifm-heading-font-family: 'Space Grotesk', sans-serif;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #0e8fff;
+  --ifm-color-primary-dark: #006fcf;
+  --ifm-color-primary-darker: #0064ba;
+  --ifm-color-primary-darkest: #004e90;
+  --ifm-color-primary-light: #3da5ff;
+  --ifm-color-primary-lighter: #6bbbff;
+  --ifm-color-primary-lightest: #99d1ff;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  --ifm-background-color: #0a0a0f;
+  --ifm-background-surface-color: #12121a;
+  --ifm-navbar-background-color: rgba(10, 10, 15, 0.95);
+  --ifm-footer-background-color: #0a0a0f;
+}
+
+/* Navbar styling */
+.navbar {
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Hero styling */
+.hero {
+  background: linear-gradient(180deg, #0a0a0f 0%, #12121a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 70% 60%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 80%, rgba(6, 182, 212, 0.05) 0%, transparent 40%);
+  animation: float 20s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+
+  25% {
+    transform: translate(2%, 2%) rotate(1deg);
+  }
+
+  50% {
+    transform: translate(-1%, 3%) rotate(-1deg);
+  }
+
+  75% {
+    transform: translate(3%, -2%) rotate(2deg);
+  }
+}
+
+.hero__title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  position: relative;
+}
+
+.hero__subtitle {
+  font-size: 1.25rem;
+  color: #a1a1aa;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Button styling */
+.button--primary,
+.button--secondary {
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.button--primary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  border: none;
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
+}
+
+.button--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(139, 92, 246, 0.4);
+}
+
+/* Service tiles */
+.service-tile {
+  background: rgba(20, 20, 35, 0.6);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(20px);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.service-tile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--tile-gradient);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-tile:hover::before {
+  opacity: 1;
+}
+
+.service-tile:hover {
+  transform: translateY(-8px);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.4),
+    0 0 60px var(--tile-glow);
+}
+
+.tile-ux {
+  --tile-gradient: linear-gradient(135deg, #8b5cf6, #a78bfa);
+  --tile-glow: rgba(139, 92, 246, 0.15);
+}
+
+.tile-api {
+  --tile-gradient: linear-gradient(135deg, #3b82f6, #60a5fa);
+  --tile-glow: rgba(59, 130, 246, 0.15);
+}
+
+.tile-execution {
+  --tile-gradient: linear-gradient(135deg, #06b6d4, #22d3ee);
+  --tile-glow: rgba(6, 182, 212, 0.15);
+}
+
+.tile-security {
+  --tile-gradient: linear-gradient(135deg, #10b981, #34d399);
+  --tile-glow: rgba(16, 185, 129, 0.15);
+}
+
+.tile-scaling {
+  --tile-gradient: linear-gradient(135deg, #f97316, #fb923c);
+  --tile-glow: rgba(249, 115, 22, 0.15);
+}
+
+.tile-experimentation {
+  --tile-gradient: linear-gradient(135deg, #0064ba, #0e8fff);
+  --tile-glow: rgba(0, 100, 186, 0.15);
+}
+
+.tile-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  background: var(--tile-gradient);
+  box-shadow: 0 8px 25px var(--tile-glow);
+  margin-bottom: 1rem;
+}
+
+.tile-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.tile-level {
+  font-size: 0.85rem;
+  color: #a1a1aa;
+  margin-bottom: 1rem;
+}
+
+.tile-description {
+  color: #a1a1aa;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.tile-features {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.feature-tag {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: all 0.3s ease;
+}
+
+.feature-tag:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Flow arrow */
+.flow-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
+}
+
+.arrow-line {
+  width: 3px;
+  height: 40px;
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.5) 0%, rgba(59, 130, 246, 0.5) 100%);
+  border-radius: 2px;
+  position: relative;
+}
+
+.arrow-line::after {
+  content: '↓';
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.25rem;
+  color: #8b5cf6;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(5px);
+  }
+}
+
+/* Stats section */
+.stats-section {
+  padding: 4rem 2rem;
+  background: rgba(20, 20, 35, 0.5);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.stats-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.stat-label {
+  color: #a1a1aa;
+  font-size: 0.95rem;
+}
+
+/* CTA section */
+.cta-section {
+  padding: 6rem 2rem;
+  text-align: center;
+}
+
+.cta-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(20, 20, 35, 0.6);
+  border-radius: 32px;
+  padding: 4rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
+  animation: pulse 4s ease-in-out infinite;
+  pointer-events: none;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+.cta-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.cta-description {
+  color: #a1a1aa;
+  font-size: 1.15rem;
+  margin-bottom: 2rem;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: 2.25rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-value {
+    font-size: 2rem;
+  }
+
+  .cta-card {
+    padding: 2rem;
+  }
+
+  .cta-title {
+    font-size: 1.75rem;
+  }
+}
